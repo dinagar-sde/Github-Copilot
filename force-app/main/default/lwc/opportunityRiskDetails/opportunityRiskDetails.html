@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Opportunity Risk" icon-name="standard:opportunity">
+        <template if:true={opportunity.data}>
+            <div class="risk-details">
+                <div class="risk-summary">
+                    <span class="score-label">Risk score</span>
+                    <span class="score-value">{riskScore}</span>
+                    <span class={riskLevelClass}>{riskLevel}</span>
+                </div>
+                <dl class="risk-factors">
+                    <div>
+                        <dt>Stage last changed</dt>
+                        <dd><lightning-formatted-date-time value={stageLastChanged} year="numeric" month="short" day="2-digit"></lightning-formatted-date-time></dd>
+                    </div>
+                    <div>
+                        <dt>High risk since</dt>
+                        <dd><lightning-formatted-date-time value={highRiskSince} year="numeric" month="short" day="2-digit"></lightning-formatted-date-time></dd>
+                    </div>
+                    <div>
+                        <dt>Last escalation</dt>
+                        <dd><lightning-formatted-date-time value={lastEscalationDate} year="numeric" month="short" day="2-digit"></lightning-formatted-date-time></dd>
+                    </div>
+                </dl>
+            </div>
+        </template>
+        <template if:false={opportunity.data}>
+            <template if:true={opportunity.error}>
+                <div class="slds-p-around_medium">Risk details are unavailable.</div>
+            </template>
+            <template if:false={opportunity.error}>
+                <lightning-spinner alternative-text="Loading risk details" size="small"></lightning-spinner>
+            </template>
+        </template>
+    </lightning-card>
+</template>
