@@ -10,7 +10,13 @@ public with sharing class AWSFolderCreationTriggerHandler {
 
         for (Integer startIndex = 0; startIndex < accountIds.size(); startIndex += MAX_CALLOUTS_PER_FUTURE) {
             Integer endIndex = Math.min(startIndex + MAX_CALLOUTS_PER_FUTURE, accountIds.size());
-            AWSService.createFolderAsync(accountIds.subList(startIndex, endIndex));
+            List<Id> accountIdBatch = new List<Id>();
+
+            for (Integer index = startIndex; index < endIndex; index++) {
+                accountIdBatch.add(accountIds[index]);
+            }
+
+            AWSService.createFolderAsync(accountIdBatch);
         }
     }
 }

@@ -41,8 +41,12 @@ public with sharing class AWSService {
                         S3_Folder_Id__c = String.valueOf(accountId) + '/'
                     ));
                 }
-            } catch (Exception exception) {
-                logs.add(createErrorLog(accountId, exception.getMessage(), exception.getStackTraceString()));
+            } catch (Exception caughtException) {
+                logs.add(createErrorLog(
+                    accountId,
+                    caughtException.getMessage(),
+                    caughtException.getStackTraceString()
+                ));
             }
         }
 
@@ -50,9 +54,13 @@ public with sharing class AWSService {
             if (!accountsToUpdate.isEmpty()) {
                 update accountsToUpdate;
             }
-        } catch (Exception exception) {
+        } catch (Exception caughtException) {
             for (Account account : accountsToUpdate) {
-                logs.add(createErrorLog(account.Id, exception.getMessage(), exception.getStackTraceString()));
+                logs.add(createErrorLog(
+                    account.Id,
+                    caughtException.getMessage(),
+                    caughtException.getStackTraceString()
+                ));
             }
         }
 
@@ -84,7 +92,7 @@ public with sharing class AWSService {
 
         try {
             insert logs;
-        } catch (Exception exception) {
+        } catch (Exception caughtException) {
         }
     }
 }
