@@ -1,6 +1,6 @@
 ---
 name: "Jira Solution Design"
-description: "Use when: retrieving Jira user stories, reading linked Confluence requirements, creating a Jira-ID-solution-design.md technical solution design, or quickly listing Jira tickets assigned to the requesting user."
+description: "Use when retrieving Jira user stories, reading linked Confluence requirements, creating a Jira-ID-solution-design.md technical solution design, or quickly listing Jira tickets assigned to the requesting user."
 tools: [read, edit, search, 'com.atlassian/atlassian-mcp-server/*']
 argument-hint: "Provide a Jira issue key, for example: PROJ-123"
 user-invocable: true
@@ -46,17 +46,13 @@ When the user asks to list tickets assigned to them (for example, "list the tick
 Create the Markdown document with these sections:
 
 1. `# <JIRA-ID>: <Story title>`
-2. `## Summary`
-3. `## User Story`
-4. `## Acceptance Criteria`
-5. `## Functional Requirements`
-6. `## Technical Context`
-7. `## Proposed Solution`
-8. `## Implementation Considerations`
-9. `## Dependencies and Risks`
-10. `## Edge Cases`
-11. `## Open Questions`
-12. `## Sources`
+2. `## Requirement Summary`
+3. `## Acceptance Criteria`
+4. `## Technical Design`
+5. `## Error Handling`
+6. `## Security`
+7. `## Unit Testing Notes`
+8. `## Open Questions`
 
-For each material fact, cite its Jira issue key or Confluence page title and URL in `## Sources`; cite local file paths for implementation observations. Clearly label assumptions in the relevant section. State the created or updated document path in the final response, followed by a brief list of unresolved questions.
-In `## Proposed Solution`, describe only the selected best solution and its rationale; do not include alternatives or multiple options.
+For each material fact, cite its Jira issue key, Confluence page title and URL, or local file path inline in the relevant section. Clearly label assumptions in the relevant section. State the created or updated document path in the final response, followed by a brief list of unresolved questions.
+In `## Technical Design`, describe the selected best solution and its rationale as concise implementation points; do not include alternatives or multiple options. Document confirmed request, response, event, or data payloads in `## Technical Design`, and state when no payload changes apply. In `## Error Handling`, `## Security`, and `## Unit Testing Notes`, document confirmed requirements and repository-established practices, and record unknown details as open questions.
