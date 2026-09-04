@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AccountFolderCreationQueueable</members>
+        <members>AccountFolderCreationQueueableTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>AccountFolderTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Account.S3_Folder_Id__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>AWS_API</members>
+        <name>NamedCredential</name>
+    </types>
+    <version>67.0</version>
+</Package>
